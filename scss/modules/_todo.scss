@@ -1,0 +1,75 @@
+.work-list {
+    margin-top : 30px;
+    li {
+        padding       : 0;
+        margin        : 0;
+        position      : relative;
+        padding-right : 30px;
+        &.completed {
+            &,
+            &:hover {
+                background-color : transparent;
+                border           : 1px solid #dddddd;
+            }
+            .text {
+                text-decoration: line-through;
+                &:before {
+                    font-size: 17px;
+                }
+            }
+        }
+        &:hover {
+            .delete {
+                opacity    : 1;
+                visibility : visible;
+            }
+        }
+    }
+    a {
+        text-decoration: none;
+    }
+    .text {
+        color   : #333333;
+        display : block;
+        padding : 10px 10px 10px 40px;
+        position : relative;
+        &:before {
+            content: '\f00c';
+            @include fa-icon;
+            font-size : 0;
+            display : block;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            transition: all 0.3s ease-in-out;
+            @include center-y;
+            left: 10px;
+            line-height: 20px;
+            text-align: center;
+        }
+    }
+    .delete {
+        display : block;
+        opacity       : 0;
+        visibility    : hidden;
+        transition    : all 0.3s ease-in-out;
+        width         : 30px;
+        height        : 30px;
+        padding       : 0;
+        text-align    : center;
+        line-height   : 30px;
+        right         : 5px;
+        @include center-y;
+        border        : 1px solid #cccccc;
+        border-radius : 50%;
+        &:before {
+            content   : '\f00d';
+            @include fa-icon;
+            font-size : 17px;
+        }
+        &:hover {
+            border-color : #333333;
+        }
+    }
+}
